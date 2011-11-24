@@ -1,0 +1,17 @@
+1. Async calls to server
+************************
+<form rel="async"></form>
+<a href="" rel="async"/>
+<a href="" rel="async-post"/>
+Pipeline.makeAsync("...")
+
+2. Response
+***********
+render_for_pipeline(partial, "", "") { |rendered_view| 
+	<<-eos
+		$(".foo").html(rendered_view);
+	eos
+}
+
+Sidenote
+* When writing javascript code in async partials, wrap it with Pipeline.queue(function(){ your code goes here })
