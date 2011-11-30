@@ -10,7 +10,7 @@ As web developers, we are always writing the same boilerplate javascript code to
 2. an AJAX request is sent to the server, 
 3. some markup is put into the DOM.
 
-By framing AJAX interactions into the steps above, we can now perform majority of the Ajax interactions with very little effort, via Pipeline.
+By framing AJAX interactions into the steps above, we can now perform majority of the Ajax interactions with very little effort, with Pipeline.
 
 
 ## INSTALLATION
