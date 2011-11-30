@@ -51,3 +51,14 @@ Let's see how Pipeline solves for the 3 steps:
 ## COMPANIES ALREADY USING THIS
 
 LegalReach, MyDressAffair, TableSlice
+
+## CONTRIBUTE
+
+If you'd like to hack on Pipeline, start by forking my repo on GitHub:
+
+http://github.com/legalreach/pipeline
+
+If you have any ideas or suggestions, feel free to contact me at avlok@legalreach.com
+
+
+Copyright © 2011 Avlok Kohli of LegalReach, released under the MIT license
