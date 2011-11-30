@@ -27,8 +27,10 @@ Let's see how Pipeline solves for the 3 steps:
 
 	* To wire a click or form submission to happen asynchronously, all we need to do is add a "rel=async" attribute. For example,
 		
-		`<a href="/some_url" rel="async">Click Me, I'm Async</a>`
-		`<form action="/some_url" method="post" rel="async"></form>`
+		```
+		<a href="/some_url" rel="async">Click Me, I'm Async</a>
+		<form action="/some_url" method="post" rel="async"></form>
+		```
 
 1. an AJAX request is sent to the server
 
@@ -38,11 +40,13 @@ Let's see how Pipeline solves for the 3 steps:
 	
 	* When processing the server request, the controller action will inject markup (or any JS code) that will automaticaly be executed at the client. The rails code to perform this is,
 	
-		`render_for_pipeline("some_view_to_be_rendered", "", "") { |rendered_view| 
+		```
+		render_for_pipeline("some_view_to_be_rendered", "", "") { |rendered_view| 
 			<<-eos
 				$(this).html(rendered_view); // injects/replaces html markup on the browser
 			eos
-		}`
+		}
+		```
 
 ## COMPANIES ALREADY USING THIS
 
