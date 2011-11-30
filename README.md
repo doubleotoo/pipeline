@@ -15,6 +15,7 @@ By framing AJAX interactions into the steps above, we can now perform majority o
 ## INSTALLATION
 
 The best way to install Pipeline is via Gemfile:
+
     gem "pipeline", :git => 'git://github.com/legalreach/pipeline.git'
 
 ## USING
