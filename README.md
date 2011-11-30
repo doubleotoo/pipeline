@@ -50,7 +50,7 @@ Let's see how Pipeline solves for the 3 steps:
 
 ## COMPANIES ALREADY USING THIS
 
-LegalReach, MyDressAffair, TableSlice
+LegalReach, MyDressAffair
 
 ## CONTRIBUTE
 
