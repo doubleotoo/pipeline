@@ -107,9 +107,9 @@ Pipeline.handleSubmit = function(e)  {
 }
 
 Pipeline.setup = function () {
-  $("input").click(Pipeline.handleClick);
-  $("a").click(Pipeline.handleClick);
-  $("form").submit(Pipeline.handleClick);
+  $("input").live("click", Pipeline.handleClick);
+  $("a").live("click", Pipeline.handleClick);
+  $("form").live("submit", Pipeline.handleSubmit);
 };
 
 $(function() {
