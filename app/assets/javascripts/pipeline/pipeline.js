@@ -65,6 +65,7 @@ Pipeline.handleClick = function(e) {
         dataType: 'json'
       });
       e.preventDefault();
+      return;
     case 'async-post':
       $.ajax({
         type: 'POST',
@@ -78,6 +79,7 @@ Pipeline.handleClick = function(e) {
         dataType: 'json'
       });
       e.preventDefault();
+      return;
   default:
     return;
   }
