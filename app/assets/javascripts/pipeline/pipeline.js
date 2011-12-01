@@ -109,3 +109,7 @@ Pipeline.setup = function () {
   $("a").click(Pipeline.handleClick);
   $("form").submit(Pipeline.handleClick);
 };
+
+$(function() {
+  Pipeline.setup();
+})
