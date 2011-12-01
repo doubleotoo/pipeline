@@ -37,7 +37,6 @@ Pipeline.makeAsync = function(url, elem, type, data, callback) {
     success: function(data){ //jQuery.proxy(function(data){
       eval(data.onload);
       Pipeline.executeQueue();
-      TextHint.setup();
     },// this),
     complete: callback,
     dataType: 'json'
@@ -45,75 +44,68 @@ Pipeline.makeAsync = function(url, elem, type, data, callback) {
   return false;
 }
 
-Pipeline.setup = function () {
-  window.AppView = Backbone.View.extend({
-    el: $("#content"),
-    events: { 
-      "click input": "handleClick",
-      "click a": "handleClick",
-      "submit form": "handleSubmit"
-    },
-    handleSubmit: function(e) {
-      elem = e.target;
-      if (elem.nodeName != "FORM") elem = e.currentTarget; // for IE
-      if (!elem || elem.nodeName!= "FORM" || $(elem).attr('rel') != "async") return;
-      rel = $(elem).attr("rel");
-      href = $(elem).attr('action');
+Pipeline.handleClick = function(e) {
+  elem = e.target;
+  if (!$(elem).is("a")) {
+    elem = $(elem).parents("a");
+  }
+  rel = $(elem).attr('rel');
+  href = $(elem).attr('ajaxify') || $(elem).attr('href');
+  switch (rel) {
+    case 'async':
+      $.ajax({
+        type: 'GET',
+        url: href,
+        relativeTo: elem,
+  //      data: jQuery(form).serialize(),
+        success: function(data){ //jQuery.proxy(function(data){
+          eval(data.onload);
+          Pipeline.executeQueue();
+        },// this),
+        dataType: 'json'
+      });
+      e.preventDefault();
+    case 'async-post':
       $.ajax({
         type: 'POST',
         url: href,
         relativeTo: elem,
-        data: jQuery(elem).serialize(),
+        data: getUrlVars(href),
         success: function(data){ //jQuery.proxy(function(data){
           eval(data.onload);
           Pipeline.executeQueue();
-          TextHint.setup();
         },// this),
         dataType: 'json'
-      });         
+      });
       e.preventDefault();
-    },
-    handleClick: function(e) {
-      elem = e.target;
-      if (!$(elem).is("a")) {
-        elem = $(elem).parents("a");
-      }
-      rel = $(elem).attr('rel');
-      href = $(elem).attr('ajaxify') || $(elem).attr('href');
-      switch (rel) {
-        case 'async':
-          $.ajax({
-            type: 'GET',
-            url: href,
-            relativeTo: elem,
-      //      data: jQuery(form).serialize(),
-            success: function(data){ //jQuery.proxy(function(data){
-              eval(data.onload);
-              Pipeline.executeQueue();
-              TextHint.setup();
-            },// this),
-            dataType: 'json'
-          });
-          e.preventDefault();
-        case 'async-post':
-          $.ajax({
-            type: 'POST',
-            url: href,
-            relativeTo: elem,
-            data: getUrlVars(href),
-            success: function(data){ //jQuery.proxy(function(data){
-              eval(data.onload);
-              Pipeline.executeQueue();
-              TextHint.setup();
-            },// this),
-            dataType: 'json'
-          });
-          e.preventDefault();
-      default:
-        return;
-      }
-      e.preventDefault();
-    }
-  });
-  window.App = new AppView;  
+  default:
+    return;
+  }
+  e.preventDefault();
+}
+
+Pipeline.handleSubmit = function(e)  {
+  elem = e.target;
+  if (elem.nodeName != "FORM") elem = e.currentTarget; // for IE
+  if (!elem || elem.nodeName!= "FORM" || $(elem).attr('rel') != "async") return;
+  rel = $(elem).attr("rel");
+  href = $(elem).attr('action');
+  $.ajax({
+    type: 'POST',
+    url: href,
+    relativeTo: elem,
+    data: jQuery(elem).serialize(),
+    success: function(data){ //jQuery.proxy(function(data){
+      eval(data.onload);
+      Pipeline.executeQueue();
+    },// this),
+    dataType: 'json'
+  });         
+  e.preventDefault();
+}
+
+Pipeline.setup = function () {
+  $("input").click(Pipeline.handleClick);
+  $("a").click(Pipeline.handleClick);
+  $("form").submit(Pipeline.handleClick);
 };
