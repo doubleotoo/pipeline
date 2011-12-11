@@ -1,7 +1,12 @@
 Pipeline - Eliminate boiler-plate code for AJAX interactions
 ============================================================
 
+## INSPIRATION
+
+I was inspired to do this project because of the following Facebook Tech Talk - https://www.facebook.com/video/video.php?v=596368660334
+
 ## DESCRIPTION
+
 As web developers, we are always writing the same boilerplate javascript code to wire very similar AJAX interactions. This is unnecessary and there is a better way.
 
 90% of AJAX interactions can be boiled to a very small set of steps:
