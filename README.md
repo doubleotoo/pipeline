@@ -19,6 +19,10 @@ The best way to install Pipeline is via Gemfile:
 
     gem "pipeline", :git => 'git://github.com/legalreach/pipeline.git'
 
+## EXAMPLES
+
+http://pipeline-examples.herokuapp.com/
+
 ## USING
 
 Let's see how Pipeline solves for the 3 steps:
@@ -50,7 +54,7 @@ Let's see how Pipeline solves for the 3 steps:
 
 ## COMPANIES ALREADY USING THIS
 
-LegalReach, MyDressAffair
+LegalReach, MyDressAffair, TableSlice
 
 ## CONTRIBUTE
 
