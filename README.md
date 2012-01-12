@@ -1,5 +1,5 @@
-Pipeline - Eliminate boiler-plate code for AJAX interactions
-============================================================
+Pipeline - Eliminate boiler-plate Javascript code for AJAX interactions
+=======================================================================
 
 ## INSPIRATION
 
