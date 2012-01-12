@@ -9,7 +9,7 @@ I was inspired to do this project because of the following Facebook Tech Talk - 
 
 As web developers, we are always writing the same boilerplate javascript code to wire very similar AJAX interactions. This is unnecessary and there is a better way.
 
-90% of AJAX interactions can be boiled to a very small set of steps:
+80% of AJAX interactions can be boiled to a very small set of steps:
 
 1. User clicks on a link or submits a form, 
 2. an AJAX request is sent to the server, 
